@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @booksmark.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @booksmark.url %>
+</p>
+
+<%= link_to 'Edit', edit_booksmark_path(@booksmark) %> |
+<%= link_to 'Back', booksmarks_path %>
+ <%= link_to 'Destroy', @booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "secondary button" %>
