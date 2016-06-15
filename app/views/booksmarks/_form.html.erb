@@ -1,3 +1,4 @@
+<div class="row columns">
 <%= form_for(@booksmark) do |f| %>
   <% if @booksmark.errors.any? %>
     <div id="error_explanation">
@@ -12,14 +13,31 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url, :onBlur => "fetchUrl()" %>
+  </div>
+
+  <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "button success" %>
   </div>
 <% end %>
+
+<script type="text/javascript" defer>
+   function fetchUrl() {
+     var url = document.getElementById( "site_url" ).value;
+     $.ajax({
+         type: 'GET',
+         url: "/sites/get_title?url=" + url,
+         success: function(data){
+             $("#site_title").val(data);
+         },
+         dataType: 'text'
+     });
+   }
+ </script> 
+ </div>

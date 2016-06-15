@@ -61,6 +61,13 @@ class BooksmarksController < ApplicationController
     end
   end
 
+def get_title
+    @title = Net::HTTP.get(URI("#{params[:url]}")).match(/<title>(.*)<\/title>/i)[1]
+    respond_to do |format|
+    format.json { render json: @title }
+    end
+ end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_booksmark
