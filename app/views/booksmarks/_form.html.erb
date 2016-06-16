@@ -29,12 +29,12 @@
 
 <script type="text/javascript" defer>
    function fetchUrl() {
-     var url = document.getElementById( "site_url" ).value;
+     var url = document.getElementById( "booksmark_url" ).value;
      $.ajax({
          type: 'GET',
-         url: "/sites/get_title?url=" + url,
+         url: "/booksmarks/get_title?url=" + url,
          success: function(data){
-             $("#site_title").val(data);
+             $("#booksmark_title").val(data);
          },
          dataType: 'text'
      });
