@@ -4,7 +4,11 @@ class BooksmarksController < ApplicationController
   # GET /booksmarks
   # GET /booksmarks.json
   def index
-    @booksmarks = Booksmark.all
+    if params[:search]
+      @booksmarks = Booksmark.search(params[:search])
+    else
+      @booksmarks = Booksmark.all
+    end
   end
 
   # GET /booksmarks/1
