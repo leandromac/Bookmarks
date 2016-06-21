@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Framework Foundation
 gem 'foundation-rails'
 gem 'nokogiri', '< 1.6.8'
+gem 'kaminari'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'

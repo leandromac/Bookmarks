@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
 <h1 class="text-center">♥ My Booksmarks List ♥</h1>
-<hr>
+
 <% @booksmarks.each do |booksmark| %>
-  <div class="row">
-    <div class="small-9 large-11 columns">
-      <%= link_to booksmark.title, booksmark.url, :target => "_blank", :class => "secondary hollow button uppercase expanded" %>
-    </div>
+<div class="callout">
+  <h5><%= link_to booksmark.title, booksmark.url, :target => "_blank", :class => "uppercase" %>
+</h5>
+<div class="button-group tiny">
+  <%= link_to 'Details', booksmark, :class => "tiny button" %>
+  <%= link_to 'Edit', edit_booksmark_path(booksmark), :class => "tiny button warning" %>
+</div>
 
-    <div class="small-3 large-1 columns">
-      <div class="button-group">
-        <%= link_to 'Details', booksmark, :class => "secondary button" %>
-      </div>
-    </div>
+  
+  
+ 
+</div>
 
-  </div>
 <% end %>
+
 <div class="row columns">
 <div class="text-center">
     <%= link_to ' + Add Booksmark', new_booksmark_path, :class => "button success" %>
