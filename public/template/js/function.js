@@ -1,49 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>♥ <%= content_for?(:title) ? yield(:title) : "My Booksmarks" %> ♥</title>
-
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-    body {
-            max-width: 970px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #efefef;
-        }
-        .dual-list .list-group {
-            margin-top: 8px;
-        }
-
-        .list-left li, .list-right li {
-            cursor: pointer;
-        }
-
-        .list-arrows {
-            padding-top: 100px;
-        }
-
-        .list-arrows button {
-            margin-bottom: 20px;
-        }
-    </style>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-  </head>
-
-  <body>
-<div class="container">
-<h1 class="text-center">My Bookmarks</h1>
-    <%= yield %>
-</div>
-
-<script type="text/javascript">
         $(function () {
 
             $('body').on('click', '.list-group .list-group-item', function () {
@@ -84,7 +38,3 @@
             });
 
         });
-</script>
-
-  </body>
-</html>

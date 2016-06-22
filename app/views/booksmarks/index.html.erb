@@ -1,25 +1,33 @@
 <p id="notice"><%= notice %></p>
-<h1 class="text-center">♥ My Booksmarks List ♥</h1>
-
-<% @booksmarks.each do |booksmark| %>
-<div class="callout">
-  <h5><%= link_to booksmark.title, booksmark.url, :target => "_blank", :class => "uppercase" %>
-</h5>
-<div class="button-group tiny">
-  <%= link_to 'Details', booksmark, :class => "tiny button" %>
-  <%= link_to 'Edit', edit_booksmark_path(booksmark), :class => "tiny button warning" %>
-</div>
-
-  
-  
- 
-</div>
-
-<% end %>
-
 <div class="row columns">
 <div class="text-center">
     <%= link_to ' + Add Booksmark', new_booksmark_path, :class => "button success" %>
 
 </div>
 </div>
+
+<div class="dual-list list-left col-md-12 columns">
+            <div class="text-left">
+                <div class="row">
+                    <div class="col-md-12">
+                    <input type="text" name="SearchDualList" class="form-control" placeholder="Search your bookmarks here..." />
+                    </div>
+                </div>
+                <ul class="list-group">
+<% @booksmarks.each do |booksmark| %>
+
+	<li class="list-group-item">
+    	<h6>
+			<%= link_to 'Details', booksmark, :class => "tiny button" %>
+			<%= link_to 'Edit', edit_booksmark_path(booksmark), :class => "tiny button warning" %> 
+    	<%= link_to booksmark.title, booksmark.url, :target => "_blank", :class => "uppercase" %>
+
+    	</h6>
+            
+    </li>
+<% end %>
+
+                    
+           </ul>
+            </div>
+        </div>
