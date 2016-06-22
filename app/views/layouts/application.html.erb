@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>♥ <%= content_for?(:title) ? yield(:title) : "My Booksmarks" %> ♥</title>
+    <title>♥ <%= content_for?(:title) ? yield(:title) : "My Bookmarks" %> ♥</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -38,10 +38,11 @@
   </head>
 
   <body>
-<div class="container">
 <h1 class="text-center">My Bookmarks</h1>
+
     <%= yield %>
-</div>
+
+
 
 <script type="text/javascript">
         $(function () {
