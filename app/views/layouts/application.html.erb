@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>♥ <%= content_for?(:title) ? yield(:title) : "My Bookmarks" %> ♥</title>
+    <title><%= content_for?(:title) ? yield(:title) : "My Bookmarks" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -15,7 +15,7 @@
             max-width: 970px;
             margin-left: auto;
             margin-right: auto;
-            background-color: #efefef;
+            background-color: #e9ebee;
         }
         .dual-list .list-group {
             margin-top: 8px;
@@ -38,10 +38,16 @@
   </head>
 
   <body>
-    <h2 class="text-center" style="padding: 10px">My Bookmarks</h2>
+    <h2 class="text-center" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
 
     <%= yield %>
 
+    <hr>
+    <footer style="padding: 20px 0px">
+        <p class="text-center">With ♥ Rails - 
+        <a href="https://github.com/leandromac/Bookmarks" target="_blank">
+        <img src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" width="25"></a></p>
+    </footer>
 
 
 <script type="text/javascript">

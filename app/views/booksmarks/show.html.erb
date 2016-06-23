@@ -7,7 +7,8 @@
   <strong>URL:</strong>
   <%= link_to @booksmark.url, @booksmark.url, :target => "_blank", :class => "button success" %>
 </p>
+<div class="text-center">
 <%= link_to 'Back', booksmarks_path, :class => "secondary button" %>
 <%= link_to 'Edit', edit_booksmark_path(@booksmark), :class => "button warning" %>
- <%= link_to 'Destroy', @booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "alert button" %>
+</div>
  </div></div>

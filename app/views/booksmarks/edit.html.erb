@@ -1,8 +1,11 @@
 <div class="small-12 large-12 columns">
-<h1>Editing Booksmark</h1>
+<h4>Editing Booksmark</h4>
+<hr>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @booksmark, :class => 'secondary button' %>
+<div class="text-center">
+<%= link_to 'Show', @booksmark, :class => 'button' %>
 <%= link_to 'Back', booksmarks_path, :class => 'warning button' %>
+ <%= link_to 'Destroy', @booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "alert button" %>
+ </div>
 </div>
