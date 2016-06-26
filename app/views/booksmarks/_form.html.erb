@@ -1,43 +1,43 @@
-<div class="row columns">
-<%= form_for(@booksmark) do |f| %>
-  <% if @booksmark.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@booksmark.errors.count, "error") %> prohibited this booksmark from being saved:</h2>
+  <div class="row columns">
+  <%= form_for(@booksmark) do |f| %>
+    <% if @booksmark.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@booksmark.errors.count, "error") %> prohibited this booksmark from being saved:</h2>
 
-      <ul>
-      <% @booksmark.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @booksmark.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :url %><br>
+      <%= f.text_field :url, :onBlur => "fetchUrl()" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title, :placeholder => "Wait for the load title automatically..." %>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "Save Bookmark", :class => "button success" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url, :onBlur => "fetchUrl()" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, :placeholder => "Wait for the load title automatically..." %>
-  </div>
-
-  <div class="actions text-center">
-    <%= f.submit "Save Bookmark", :class => "button success" %>
-  </div>
-<% end %>
-
-<script type="text/javascript" defer>
-   function fetchUrl() {
-     var url = document.getElementById( "booksmark_url" ).value;
-     $.ajax({
-         type: 'GET',
-         url: "/booksmarks/get_title?url=" + url,
-         success: function(data){
-             $("#booksmark_title").val(data);
-         },
-         dataType: 'text'
-     });
-   }
- </script> 
- </div>
+  <script type="text/javascript" defer>
+     function fetchUrl() {
+       var url = document.getElementById( "booksmark_url" ).value;
+       $.ajax({
+           type: 'GET',
+           url: "/booksmarks/get_title?url=" + url,
+           success: function(data){
+               $("#booksmark_title").val(data);
+           },
+           dataType: 'text'
+       });
+     }
+   </script> 
+   </div>
