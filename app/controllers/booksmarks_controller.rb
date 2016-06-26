@@ -1,5 +1,6 @@
 class BooksmarksController < ApplicationController
   before_action :set_booksmark, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! # user is the model's name
 
   # GET /booksmarks
   # GET /booksmarks.json
