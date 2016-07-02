@@ -12,10 +12,9 @@
      <link href="css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     body {
-            max-width: 970px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            background-color: #e9ebee;
         }
         .dual-list .list-group {
             margin-top: 8px;
@@ -38,6 +37,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <% if user_signed_in? %>
             Welcome, <%= link_to current_user.email, edit_user_registration_path  %> | 
             <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
@@ -49,6 +49,22 @@
         <h2 class="text-right" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
         <%= link_to ' + Add Bookmark', new_booksmark_path, :class => "button success" %>
     </div>
+=======
+    <nav>
+        
+    </nav>
+    <p class="text-right">
+        <% if user_signed_in? %>
+                Welcome, <%= link_to current_user.email, edit_user_registration_path  %> | 
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
+            <% else %>
+                <%= link_to "Sign Up", new_user_registration_path %> | 
+                <%= link_to "Sign In", new_user_session_path %>
+        <% end %>
+    </p>
+
+    <h2 class="text-center" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
+>>>>>>> f0cd335fe09c12ef218f963443995385edc41e79
 
     <%= yield %>
 
