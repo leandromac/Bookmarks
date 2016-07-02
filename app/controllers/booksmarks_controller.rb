@@ -10,7 +10,9 @@ class BooksmarksController < ApplicationController
     else
       @booksmarks = Booksmark.all
     end
+    
   end
+
 
   # GET /booksmarks/1
   # GET /booksmarks/1.json
@@ -75,6 +77,7 @@ def get_title
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_booksmark
       @booksmark = Booksmark.find(params[:id])
     end

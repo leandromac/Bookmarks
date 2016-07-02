@@ -45,7 +45,10 @@
             <%= link_to "Sign Up", new_user_registration_path %> | 
             <%= link_to "Sign In", new_user_session_path %>
     <% end %>
-    <h2 class="text-center" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
+    <div class="row columns col-md-12">
+        <h2 class="text-right" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
+        <%= link_to ' + Add Bookmark', new_booksmark_path, :class => "button success" %>
+    </div>
 
     <%= yield %>
 
