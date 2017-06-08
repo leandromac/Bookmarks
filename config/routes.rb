@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :booksmarks do
     get 'get_title', on: :collection
   end
+
 end

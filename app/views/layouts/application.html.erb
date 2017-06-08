@@ -37,40 +37,25 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-    <% if user_signed_in? %>
-            Welcome, <%= link_to current_user.email, edit_user_registration_path  %> | 
-            <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
-        <% else %>
-            <%= link_to "Sign Up", new_user_registration_path %> | 
-            <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
-    <div class="row columns col-md-12">
-        <h2 class="text-right" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
-        <%= link_to ' + Add Bookmark', new_booksmark_path, :class => "button success" %>
-    </div>
-=======
-    <nav>
-        
-    </nav>
-    <p class="text-right">
-        <% if user_signed_in? %>
-                Welcome, <%= link_to current_user.email, edit_user_registration_path  %> | 
-                <%= link_to "Logout", destroy_user_session_path, method: :delete %> 
+<div data-sticky-container>
+  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1" data-btm-anchor="content:bottom">
+    <div class="title-bar-left"><%= link_to 'My Bookmarks', @bookmarks_path %></div>
+    <div class="title-bar-right"><% if user_signed_in? %>
+                <%= link_to current_user.email, edit_user_registration_path  %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             <% else %>
-                <%= link_to "Sign Up", new_user_registration_path %> | 
+                <%= link_to "Sign Up", new_user_registration_path %> |
                 <%= link_to "Sign In", new_user_session_path %>
-        <% end %>
-    </p>
-
-    <h2 class="text-center" style="padding: 10px;color:#3b5998">My Bookmarks</h2>
->>>>>>> f0cd335fe09c12ef218f963443995385edc41e79
+        <% end %></div>
+  </div>
+</div>
+<div style="padding: 15px"></div>
 
     <%= yield %>
 
     <hr>
     <footer style="padding: 20px 0px">
-        <p class="text-center">With ♥ Rails - 
+        <p class="text-center">With ♥ Rails -
         <a href="https://github.com/leandromac/Bookmarks" target="_blank">
         <img src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" width="25"></a></p>
     </footer>

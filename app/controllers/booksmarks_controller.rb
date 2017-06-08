@@ -10,7 +10,8 @@ class BooksmarksController < ApplicationController
     else
       @booksmarks = Booksmark.all
     end
-    
+      @booksmark = Booksmark.new
+
   end
 
 
@@ -22,6 +23,7 @@ class BooksmarksController < ApplicationController
   # GET /booksmarks/new
   def new
     @booksmark = Booksmark.new
+    @booksmarks = Booksmark.all
   end
 
   # GET /booksmarks/1/edit
@@ -35,7 +37,7 @@ class BooksmarksController < ApplicationController
 
     respond_to do |format|
       if @booksmark.save
-        format.html { redirect_to @booksmark, notice: 'Booksmark was successfully created.' }
+        format.html { redirect_to booksmarks_path, notice: 'Booksmark was successfully created.' }
         format.json { render :show, status: :created, location: @booksmark }
       else
         format.html { render :new }
