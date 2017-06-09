@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "My Bookmarks" %></title>
-
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -55,7 +55,7 @@
     <% end %>
 </div>
 <div class="title-bar-right">
-    <a href="#" class="button warning">NEW BOOKMARK</a>
+    <%= link_to 'NEW BOOKMARK', new_booksmark_path, :class => "button warning" %>
 </div>
 <hr>
 
