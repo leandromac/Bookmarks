@@ -13,16 +13,16 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :url %><br>
+      URL<br>
       <%= f.text_field :url, :onBlur => "fetchUrl()" %>
     </div>
 
     <div class="field">
-      <%= f.label :title %><br>
+      Title<br>
       <%= f.text_field :title, :placeholder => "Wait for the load title automatically..." %>
     </div>
 
-    <div class="actions text-center">
+    <div class="actions text-right">
       <%= f.submit "Update bookmark", :class => "button success" %>
     </div>
   <% end %>

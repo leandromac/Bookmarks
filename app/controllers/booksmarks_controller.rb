@@ -1,4 +1,5 @@
 class BooksmarksController < ApplicationController
+  require 'net/http'
   before_action :set_booksmark, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! # user is the model's name
 
@@ -37,7 +38,7 @@ class BooksmarksController < ApplicationController
 
     respond_to do |format|
       if @booksmark.save
-        format.html { redirect_to booksmarks_path, notice: 'Booksmark was successfully created.' }
+        format.html { redirect_to booksmarks_path, notice: 'Successfully created.' }
         format.json { render :show, status: :created, location: @booksmark }
       else
         format.html { render :new }
@@ -51,7 +52,7 @@ class BooksmarksController < ApplicationController
   def update
     respond_to do |format|
       if @booksmark.update(booksmark_params)
-        format.html { redirect_to @booksmark, notice: 'Booksmark was successfully updated.' }
+        format.html { redirect_to @booksmark, notice: 'Successfully updated.' }
         format.json { render :show, status: :ok, location: @booksmark }
       else
         format.html { render :edit }
@@ -65,7 +66,7 @@ class BooksmarksController < ApplicationController
   def destroy
     @booksmark.destroy
     respond_to do |format|
-      format.html { redirect_to booksmarks_url, notice: 'Booksmark was successfully destroyed.' }
+      format.html { redirect_to booksmarks_url, notice: 'Successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,7 +77,6 @@ def get_title
     format.json { render json: @title }
     end
  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
 

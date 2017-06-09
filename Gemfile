@@ -4,6 +4,10 @@ source 'https://rubygems.org'
  gem 'rails_12factor', group: :production
  gem 'pg', group: :production
 
+gem 'bundler', '>= 1.8.4'
+source 'https://rails-assets.org' do
+    gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+end
 # Framework Foundation
 gem 'foundation-rails'
 gem 'nokogiri', '< 1.6.8'
