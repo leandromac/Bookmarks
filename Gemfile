@@ -62,3 +62,10 @@ group :development, :test do
 
 end
 
+group :production do
+  # Instalando o Postgresql em modo de produção
+  gem 'pg'
+  # Heroku
+  gem 'rails_12factor'
+end
+
