@@ -9,7 +9,6 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
     body {
             max-width: 600px;
@@ -32,34 +31,54 @@
             margin-bottom: 20px;
         }
     </style>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
   </head>
 
 <body>
 
-<br>
-<div class="row text-center">
 
-</div>
-<div class="title-bar-left">
-<%= link_to @booksmarks_path do %>
-    <%= image_tag 'favorite.png', width: '50' %>
-<% end %>
-    <% if user_signed_in? %>
-    <%= link_to current_user.email, edit_user_registration_path  %> |
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign Up", new_user_registration_path %> |
-    <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
-</div>
-<div class="title-bar-right">
-    <%= link_to 'NEW BOOKMARK', new_booksmark_path, :class => "button warning" %>
-</div>
-<hr>
 
-<div class="row">
+
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container" style="max-width: 680px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <%= link_to booksmarks_path, class: 'navbar-brand' do %>
+                    <span class="glyphicon glyphicon-star text-warning" aria-hidden="true"></span> Bookmarks
+                <% end %>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+                <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><%= link_to "Edit User", edit_user_registration_path %></li>
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                    </li>
+                </ul>
+                <%= link_to new_booksmark_path, :class => "btn btn-warning pull-right navbar-btn" do %>
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
+                <% end %>
+                <% else %>
+                    <li><%= link_to "Sign In", new_user_session_path %></li>
+                    <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-default navbar-btn" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div style="margin-top: 65px"></div>
+
+<div class="cointainer">
     <%= yield %>
 </div>
     <hr>

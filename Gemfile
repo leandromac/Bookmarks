@@ -6,7 +6,11 @@ source 'https://rubygems.org'
 
 gem 'bundler', '>= 1.8.4'
 source 'https://rails-assets.org' do
-    gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+    gem 'rails-assets-notifyjs'
+    gem 'rails-assets-bootstrap'
+    gem 'rails-assets-angular'
+    gem 'rails-assets-leaflet'
+    gem 'rails-assets-bootbox'
 end
 # Framework Foundation
 gem 'foundation-rails'

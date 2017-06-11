@@ -14,6 +14,8 @@
  *= require_self
  *= require foundation_and_overrides
  *= require foundation
+ *= require bootstrap
+ *= require leaflet
 
  */
 @import "foundation_and_overrides";
@@ -21,6 +23,9 @@
 
 body {
     background-color: #F1F1F1;
+}
+li {
+    list-style: none;
 }
 .notice {
     padding: 15px;

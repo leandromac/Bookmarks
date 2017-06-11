@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require bootbox
+//= require bootstrap
+//= require angular
+//= require leaflet
 //= require turbolinks
 //= require notifyjs
 //= require_tree .
@@ -21,3 +25,34 @@
 $(function(){ $(document).foundation(); });
 //= require foundation
 $(document).foundation();
+
+/* Sobrescreve o data-confirm do Rails */
+$.rails.allowAction = function(element) {
+  var message = element.attr('data-confirm');
+  if (!message) { return true; }
+
+  var opts = {
+    title: "Confirmação",
+    message: message,
+    buttons: {
+        confirm: {
+            label: 'Yes',
+            className: 'btn-success'
+        },
+        cancel: {
+            label: 'No',
+            className: 'btn-danger'
+        }
+    },
+    callback: function(result) {
+      if (result) {
+        element.removeAttr('data-confirm');
+        element.trigger('click.rails')
+      }
+    }
+  };
+
+  bootbox.confirm(opts);
+
+  return false;
+}
