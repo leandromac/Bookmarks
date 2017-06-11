@@ -14,6 +14,9 @@
             <%= link_to edit_booksmark_path(booksmark), :class => "btn btn-warning pull-right" do %>
               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             <% end %>
+            <%= link_to booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            <% end %>
           </div>
           </li>
       <% end %>

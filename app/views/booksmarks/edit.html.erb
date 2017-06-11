@@ -1,10 +1,8 @@
-<div class="small-12 large-12 columns callout large">
-<h4>Editing Booksmark</h4>
-<hr>
-
-<%= render 'form' %>
-<div class="text-left">
-<%= link_to 'Back', booksmarks_path, :class => 'warning button' %>
- <%= link_to 'Destroy', @booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "alert button" %>
- </div>
+<div class="row">
+    <div class="jumbotron">
+        <div class="container">
+            <h4 class="text-center">Editing Bookmark</h4>
+            <%= render 'form' %>
+        </div>
+    </div>
 </div>
