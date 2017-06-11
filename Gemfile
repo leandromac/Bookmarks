@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.4'
 
 # Heroku
 gem 'rails_12factor', group: :production
