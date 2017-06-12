@@ -9,7 +9,7 @@ class BooksmarksController < ApplicationController
     if params[:search]
       @booksmarks = Booksmark.search(params[:search])
     else
-      @booksmarks = Booksmark.all
+      @booksmarks = Booksmark.order(:title).page(params[:page]).per(20)
     end
       @booksmark = Booksmark.new
 

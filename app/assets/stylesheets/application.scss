@@ -21,6 +21,16 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
 
+.pagination {
+    display: -webkit-inline-box !important;
+}
+.pagination > nav {
+    display: -webkit-inline-box !important;
+}
+.pagination > .next, .last, .first, .prev {
+    display: -webkit-inline-box !important;
+}
+
 body {
     background-color: #F1F1F1;
 }

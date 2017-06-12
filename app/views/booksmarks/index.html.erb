@@ -3,30 +3,35 @@
 </script>
 
 <div class="dual-list">
-  <ul class="list-group" style="margin-left:0px">
-    <div class="form-group has-warning">
-      <input type="text" name="SearchDualList" class="form-control input-lg" placeholder="Search your bookmark here..." />
-    </div>
-      <% @booksmarks.each do |booksmark| %>
-      	<li>
-          <div class="notice notice-warning">
-            <strong>
-            <%= link_to booksmark.url, :target => "_blank" do %>
-                <%= booksmark.title %> <span class="text-warning glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+    <ul class="list-group" style="margin-left:0px">
+      <div class="form-group has-warning">
+        <input type="text" name="SearchDualList" class="form-control input-lg" placeholder="Search your bookmark here..." />
+      </div>
+        <% @booksmarks.each do |booksmark| %>
+        	<li>
+            <div class="notice notice-warning">
+              <strong>
+              <%= link_to booksmark.url, :target => "_blank" do %>
+                  <%= booksmark.title %> <span class="text-warning glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                <% end %>
+              </strong>
+              <%= link_to booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
               <% end %>
-            </strong>
-            <%= link_to booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" do %>
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            <% end %>
-            <%= link_to edit_booksmark_path(booksmark), :style => 'margin-right:5px', :class => "btn btn-warning pull-right" do %>
-              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            <% end %>
+              <%= link_to edit_booksmark_path(booksmark), :style => 'margin-right:5px', :class => "btn btn-warning pull-right" do %>
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+              <% end %>
 
-          </div>
-          </li>
-      <% end %>
-  </ul>
+            </div>
+            </li>
+        <% end %>
+    </ul>
+    <div class="text-center">
+      <%= paginate @booksmarks %>
+    </div>
 </div>
+
+
 
 <script type="text/javascript" defer>
   function fetchUrl() {
