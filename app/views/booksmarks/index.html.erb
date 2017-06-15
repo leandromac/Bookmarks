@@ -8,7 +8,7 @@
             <div class="notice notice-warning">
               <strong>
               <%= link_to booksmark.url, :target => "_blank" do %>
-                  <%= booksmark.title %> <span class="text-warning glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+                  <%= truncate(booksmark.title, length: 35) %> <span class="text-warning glyphicon glyphicon-share-alt" aria-hidden="true"></span>
                 <% end %>
               </strong>
               <%= link_to booksmark, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger pull-right" do %>
